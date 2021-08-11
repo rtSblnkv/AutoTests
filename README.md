@@ -1,0 +1,2 @@
+# AutoTests
+Magenta autotests
