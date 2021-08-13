@@ -13,5 +13,6 @@ public class User {
 
     @JsonProperty(value="last_name")
     private String lastName;
+
 	private String email;
 }
