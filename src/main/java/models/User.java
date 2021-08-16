@@ -5,7 +5,6 @@ import lombok.*;
 
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -13,13 +12,13 @@ public class User {
 
     private String email;
 
+    @JsonProperty(value="first_name")
 	private String firstName;
 
+    @JsonProperty(value="last_name")
     private String lastName;
 
-    @JsonProperty(value="avatar")
     private String avatar;
-
 
     @Override
     public String toString() {

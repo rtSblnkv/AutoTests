@@ -24,13 +24,23 @@ class UserApiTest {
     }
 
     @Test
-    public void getUsers(){
+    public void getUsersFailed(){
         List<User> users = api.getUsers();
         System.out.println(users);
 
        assertThat(users)
                 .isNotNull()
                 .extracting(User::getEmail).contains("michael.lawson@reqres.in");
+    }
+
+    @Test
+    public void getUsers(){
+        List<User> users = api.getUsers();
+        System.out.println(users);
+
+        assertThat(users)
+                .isNotNull()
+                .extracting(User::getEmail).contains("eve.holt@reqres.in");
     }
 
     @Test
@@ -50,6 +60,8 @@ class UserApiTest {
 
         UserCreateResponse ucr = api.createUser(unj);
 
+        System.out.println(ucr);
+
         assertThat(ucr)
                 .isNotNull()
                 .extracting(UserNameJob::getName)
@@ -60,6 +72,9 @@ class UserApiTest {
     void updateUser() {
         UserNameJob unj = UserGenerator.generateUser();
         UserUpdateResponse userUpdateResponse = api.updateUser(1,unj);
+
+        System.out.println(userUpdateResponse );
+
         assertThat(userUpdateResponse)
                 .isNotNull()
                 .extracting(UserNameJob::getName).isEqualTo("name");
@@ -68,7 +83,7 @@ class UserApiTest {
     @Test
     void deleteUser() {
         Response response = api.deleteUser(2);
-        System.out.println(response);
+        System.out.println(response.getStatusCode());
         assertThat(response.getStatusCode() == 204);
     }
 }

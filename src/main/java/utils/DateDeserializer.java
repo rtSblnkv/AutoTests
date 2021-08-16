@@ -13,7 +13,7 @@ public class DateDeserializer extends JsonDeserializer<LocalDateTime> {
     @Override
     public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext ctxt)
             throws IOException, JsonProcessingException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hh:mm:ss:SSSZ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         return LocalDateTime.parse(jsonParser.getText(),formatter);
     }
 }
