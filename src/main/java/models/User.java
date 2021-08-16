@@ -1,18 +1,34 @@
 package models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
+
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 	private int id;
-	private String avatar;
 
-	@JsonProperty(value="first_name")
+    private String email;
+
 	private String firstName;
 
-    @JsonProperty(value="last_name")
     private String lastName;
 
-	private String email;
+    @JsonProperty(value="avatar")
+    private String avatar;
+
+
+    @Override
+    public String toString() {
+        return " {" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", avatar='" + avatar + '\'' +
+                "}\n";
+    }
 }

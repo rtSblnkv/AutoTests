@@ -8,10 +8,8 @@ import utils.DateDeserializer;
 import java.time.LocalDateTime;
 
 @Data
-public class UserPostResponse{
-	private String name;
+public class UserCreateResponse extends UserNameJob{
 	private int id;
-	private String job;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'hh:mm:ss:SSSZ")
     @JsonDeserialize(using = DateDeserializer.class)
     private LocalDateTime createdAt;

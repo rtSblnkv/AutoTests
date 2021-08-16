@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegLog{
-	private String password;
-	private String email;
+public class UserNameJob {
+	private String name;
+	private String job;
 }
